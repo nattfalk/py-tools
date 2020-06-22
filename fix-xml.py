@@ -1,6 +1,6 @@
-import os
-import re
+import os, re, time
 
+start_time = time.time()
 print("Replacing bad XML chars in files")
 for file in os.listdir(os.fsencode("./")):
 	filename = os.fsdecode(file)
@@ -23,4 +23,4 @@ for file in os.listdir(os.fsencode("./")):
 		fout.write(data)
 		fout.close()
 
-print("Finished!")
+print("Finished after %ss!" % round(time.time() - start_time, 2))
